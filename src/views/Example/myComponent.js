@@ -1,19 +1,56 @@
 import React from 'react';
-import ChildComponent from './ChildComponent';
-
+import ChildComponent  from './ChildComponent';
 class MyComponent extends React.Component {
+    state = {
+        firstName: '',
+        lastName: ''
+    }
+
+
+    handleChangeFirstName = (event) => {
+        this.setState({
+            firstName : event.target.value
+        })
+    }
+    handleChangeLastName = (event) => {
+        this.setState({
+            lastName : event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        alert('Please enter')
+    } 
+
     render() {
+        console.log('>>> call render: ',this.state)
         return (
             <>
-                <div>This is My Component</div>
+                <form>
+                    <label>First name:</label><br/>
+                    <input 
+                        type="text" 
+                        value={this.state.firstName} 
+                        onChange={(event)=> this.handleChangeFirstName(event)}
+                    /><br/>
+                    <label>Last name:</label><br/>
+                    <input type="text" value={this.state.lastName}
+                        onChange={(event)=> this.handleChangeLastName(event)}
+                    /><br/><br/>
+                    <input type="submit" value="Submit"
+                    
+                    onClick={(event) => this.handleSubmit(event)}
+                    
+                    />
+                </form> 
 
                 <ChildComponent
-                    name = {'abc'}
-                    age = {'23'}
+                    name = {this.state.firstName}
+                    age = {this.state.lastName}
                 />
             </>
         )
     }
 }
-
 export default MyComponent;
