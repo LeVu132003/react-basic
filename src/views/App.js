@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav/Nav';
 import Home from './Example/Home';
-
+import ListUser from './User/ListUser';
 import {
   BrowserRouter,
   Switch,
@@ -30,6 +30,9 @@ function App() {
             </Route>
             <Route path="/about">
               <MyComponent />
+            </Route>
+            <Route path="/user">
+              <ListUser />
             </Route>
           </Switch>
 
