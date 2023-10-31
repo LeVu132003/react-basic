@@ -27,7 +27,7 @@ class DetailUser extends React.Component {
         return(
             <>
                 <div>Hello World from detail user</div>
-                {isEmptyObj == false &&
+                {isEmptyObj === false &&
                     <>
                         <div>User name: {user.first_name} {user.last_name}</div>
                         <div>User email: {user.email}</div>
