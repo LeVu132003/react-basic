@@ -3,7 +3,6 @@ import './Upload.scss'
 import {toast } from 'react-toastify';
 function Upload() {
   const [state, setFile] = useState({ fileName: '' , fileSize: '' , fileType: '', onEdit: false })
-  let altText = '';
   function formatSizeUnits(bytes){
     if      (bytes >= 1073741824) { bytes = (bytes / 1073741824).toFixed(2) + " GB"; }
     else if (bytes >= 1048576)    { bytes = (bytes / 1048576).toFixed(2) + " MB"; }
@@ -53,18 +52,18 @@ function Upload() {
           { state.fileSize !== '' &&
             <>
               <div className='file-edit-wrapper'>
-                {
-                  state.onEdit === false && state.fileSize != '' && <h1 className='file-title'>{state.fileName}</h1>
-                }
-                {
-                  state.onEdit === true && state.fileSize != '' && <input className='edit-name' type='text' value={state.fileName} onChange={(event)=>handleChangeName(event)}/>
-                }
-                { state.fileSize != '' && <span className='file-size'>{formatSizeUnits(state.fileSize)}</span>}
-                { state.fileSize != '' && <span className='file-type'>{state.fileType}</span>}
-                { state.fileSize != '' && state.onEdit === false && <button onClick = {(event)=> handleEditName(event)}>Edit Name</button>}
-                { state.fileSize != '' && state.onEdit === true && <button onClick = {(event)=> handleSaveName(event)}>Save Name</button>}
-                { state.fileSize != '' && state.onEdit === false && <button onClick = {(event)=> handlePublishFile(event)}>Publish file</button>}
-                { state.fileSize != '' && state.onEdit === false && <button onClick = {(event)=> handleRemoveFile(event)}>Remove file</button>}
+                  {
+                    state.onEdit === false && state.fileSize !== '' && <h1 className='file-title'>{state.fileName}</h1>
+                  }
+                  {
+                    state.onEdit === true && state.fileSize !== '' && <input className='edit-name' type='text' value={state.fileName} onChange={(event)=>handleChangeName(event)}/>
+                  }
+                  { state.fileSize !== '' && <span className='file-size'>{formatSizeUnits(state.fileSize)}</span>}
+                  { state.fileSize !== '' && <span className='file-type'>{state.fileType}</span>}
+                  { state.fileSize !== '' && state.onEdit === false && <button onClick = {(event)=> handleEditName(event)}>Edit Name</button>}
+                  { state.fileSize !== '' && state.onEdit === true && <button onClick = {(event)=> handleSaveName(event)}>Save Name</button>}
+                { state.fileSize !== '' && state.onEdit === false && <button onClick = {(event)=> handlePublishFile(event)}>Publish file</button>}
+                { state.fileSize !== '' && state.onEdit === false && <button onClick = {(event)=> handleRemoveFile(event)}>Remove file</button>}
               </div>
             </>
           }

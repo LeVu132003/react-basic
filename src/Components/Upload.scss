@@ -4,6 +4,7 @@
 }
 .file-edit-wrapper{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     border: 1px solid #000;
     width: 100%;
