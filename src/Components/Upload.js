@@ -30,11 +30,26 @@ function Upload() {
   function handleSaveName(event) {
     event.preventDefault();
     setFile({...state,onEdit : false})
+    toast.success('Changes saved')
+  }
+  function handlePublishFile(event) {
+    event.preventDefault();
+    setFile({...state,onEdit : false})
+    toast.success('Publish successfully')
+  }
+  function handleRemoveFile(event) {
+    event.preventDefault();
+    setFile({...state, fileName: '' , fileSize: '' , fileType: '', onEdit: false })
+    toast.success('Remove successfully')
   }
   return (
     <div className="Upload">
         <form>
-          { state.fileName === '' && state.fileSize === '' && <input type='file' onChange={handleChange}/>}
+          { state.fileName === '' && state.fileSize === '' && 
+          <div className='upload-btn'>
+            <button><input className='choose-file-btn' type='file' onChange={handleChange}/></button>
+          </div>
+          }
           { state.fileSize !== '' &&
             <>
               <div className='file-edit-wrapper'>
@@ -48,6 +63,8 @@ function Upload() {
                 { state.fileSize != '' && <span className='file-type'>{state.fileType}</span>}
                 { state.fileSize != '' && state.onEdit === false && <button onClick = {(event)=> handleEditName(event)}>Edit Name</button>}
                 { state.fileSize != '' && state.onEdit === true && <button onClick = {(event)=> handleSaveName(event)}>Save Name</button>}
+                { state.fileSize != '' && state.onEdit === false && <button onClick = {(event)=> handlePublishFile(event)}>Publish file</button>}
+                { state.fileSize != '' && state.onEdit === false && <button onClick = {(event)=> handleRemoveFile(event)}>Remove file</button>}
               </div>
             </>
           }

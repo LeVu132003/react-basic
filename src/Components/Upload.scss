@@ -1,17 +1,46 @@
 .Upload{
     width: 100%;
+    text-align: center;
 }
 .file-edit-wrapper{
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid #ccc;
+    border: 1px solid #000;
     width: 100%;
-    height: 100px;
+    height: 200px;
     align-items: center;
+    background-color: #222;
+    * {
+        color: #fff;
+    }
 }
 .file-title {
         
 }
 .file-size{
 
+}
+button {
+  background-color: #ffa31a; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba($color: #000000, $alpha: 0.5);
+}
+.upload-btn {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid #000;
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    background-color: #222;
+    * {
+        color: #fff;
+    }
 }
