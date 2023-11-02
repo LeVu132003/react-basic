@@ -1,14 +1,10 @@
-import logo from './logo.svg';
 import './App.scss';
-import MyComponent from './Example/myComponent';
-import ListTodo from './Todos/ListTodo';
+import Header from '../Components/Header';
+import Repository from '../Components/Repository';
+import Send from '../Components/Send';
+import Request from '../Components/Request';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Nav from './Nav/Nav';
-import Home from './Example/Home';
-import ListUser from './User/ListUser';
-import DetailUser from './User/DetailUser'
-
 import {
   BrowserRouter,
   Switch,
@@ -18,30 +14,30 @@ import {
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-      <header className="App-header">
-          <Nav />
-          <img src={logo} className="App-logo" alt="logo" />
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/todo">
-              <ListTodo />
-            </Route>
-            <Route path="/about">
-              <MyComponent />
-            </Route>
-            <Route path="/user" exact>
-              <ListUser />
-            </Route>
-            <Route path="/user/:id">
-              <DetailUser />
-            </Route>
-          </Switch>
+    <>
+      <div className= 'layout'>
 
-        </header>
+        <div className='App-container'>
+        <BrowserRouter>
+          <div  className ='App-header'>
+            <Header/>
+          </div>
+          <div className='App-content'>
+            <Switch>
+              <Route path="/send" exact>
+                <Send />
+              </Route>
+              <Route path="/request" exact>
+                <Request />
+              </Route>
+              <Route path="/repository" exact>
+                <Repository />
+              </Route>
+            </Switch>
+          </div>
+          
+      </BrowserRouter>
+        </div>
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -54,8 +50,10 @@ function App() {
           pauseOnHover
           theme="colored"
         />
+
       </div>
-    </BrowserRouter>
+      
+    </>
   );
 }
 
